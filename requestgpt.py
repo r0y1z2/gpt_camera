@@ -32,6 +32,8 @@ def ask_gpt(question):
 
     response = requests.post(url, headers=headers, data=json.dumps(data))
     if response.status_code == 200:
-        print("Response data:", response.content.decode('utf-8'))
+        response_content = response.content.decode('utf-8')
+        print("Response data:", response_content)
+        return response_content
     else:
         print("Failed to get data. Status code:", response.status_code)
